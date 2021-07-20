@@ -3,9 +3,11 @@ package it.euris.ires.entity;
 import java.time.LocalDateTime;
 import java.util.UUID;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+@NoArgsConstructor
 @ToString
 public abstract class AbstractEntity {
 
@@ -22,9 +24,11 @@ public abstract class AbstractEntity {
 	@Getter
 	String version = "1.0.0";
 
-	public AbstractEntity() {
-		uuid = UUID.randomUUID();
-		createdDate = LocalDateTime.now();
+	public void setUuid(UUID uuid) {
+		this.uuid = UUID.randomUUID();
 	}
 
+	public void setCreatedDate(LocalDateTime createdDate) {
+		this.createdDate = LocalDateTime.now();
+	}
 }
